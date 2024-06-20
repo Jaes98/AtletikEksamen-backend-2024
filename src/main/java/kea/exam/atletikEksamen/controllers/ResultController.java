@@ -2,6 +2,7 @@ package kea.exam.atletikEksamen.controllers;
 
 import kea.exam.atletikEksamen.entities.Result;
 import kea.exam.atletikEksamen.services.ResultService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,12 @@ public class ResultController {
     public ResponseEntity<Result> createResult(@RequestBody Result result) {
         Result createdResult = resultService.createResult(result);
         return ResponseEntity.ok(createdResult);
+    }
+
+    @PostMapping("/multiple")
+    public ResponseEntity<List<Result>> createMultipleResults(@RequestBody List<Result> results) {
+        List<Result> newResults = resultService.createMultipleResults(results);
+        return new ResponseEntity<>(newResults, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
