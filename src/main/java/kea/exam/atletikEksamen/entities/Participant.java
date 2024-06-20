@@ -1,5 +1,6 @@
 package kea.exam.atletikEksamen.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,8 +25,10 @@ public class Participant {
     private int age;
     private String club;
 
-    @OneToMany(mappedBy = "participant")
+    @OneToMany(mappedBy = "participant", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("participant")
     private List<Result> results;
+
 
     @ManyToMany
     @JoinTable(

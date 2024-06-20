@@ -1,5 +1,6 @@
 package kea.exam.atletikEksamen.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,18 +23,19 @@ public class Result {
 //    private String resultValue;
 
     @ManyToOne
-    @JoinColumn(name = "participant_id")
-    private Participant participant;
-
-    @ManyToOne
     @JoinColumn(name = "discipline_id")
     private Discipline discipline;
 
-    public Result(String resultType, LocalDate date, Participant participant, Discipline discipline) {
+    @ManyToOne
+    @JoinColumn(name = "participant_id")
+    @JsonIgnoreProperties("results")
+    private Participant participant;
+
+    public Result(String resultType, LocalDate date, Discipline discipline, Participant participant) {
         this.resultType = resultType;
         this.date = date;
-        this.participant = participant;
         this.discipline = discipline;
+        this.participant = participant;
     }
 
     @Override

@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/participants")
@@ -18,14 +19,19 @@ public class ParticipantController {
 
     @GetMapping
     public ResponseEntity<List<Participant>> getParticipants() {
-        List<Participant> participants = participantService.getParticipants();
+        List<Participant> participants = participantService.getAllParticipants();
         return ResponseEntity.ok(participants);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Participant> getParticipant(@PathVariable int id) {
-        Participant participant = participantService.getParticipant(id);
-        return ResponseEntity.ok(participant);
+    public ResponseEntity<?> getParticipant(@PathVariable int id) {
+        Optional<Participant> participantOptional = participantService.getParticipantById(id);
+        if (participantOptional.isPresent()) {
+            Participant participant = participantOptional.get();
+            return ResponseEntity.ok(participant);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
