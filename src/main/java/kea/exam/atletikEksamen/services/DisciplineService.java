@@ -17,13 +17,17 @@ public class DisciplineService {
         this.disciplineRepository = disciplineRepository;
     }
 
-    public Discipline createDiscipline(Discipline discipline) {
-        return disciplineRepository.save(discipline);
+    public List<Discipline> getDisciplines() {
+        return disciplineRepository.findAll();
     }
 
     public Discipline getDiscipline(int id) {
         Optional<Discipline> discipline = disciplineRepository.findById(id);
         return discipline.orElse(null);
+    }
+
+    public Discipline createDiscipline(Discipline discipline) {
+        return disciplineRepository.save(discipline);
     }
 
     public Discipline updateDiscipline(int id, Discipline discipline) {
@@ -32,8 +36,6 @@ public class DisciplineService {
             Discipline updatedDiscipline = existingDiscipline.get();
             updatedDiscipline.setName(discipline.getName());
             updatedDiscipline.setResultType(discipline.getResultType());
-//            updatedDiscipline.setResults(discipline.getResults());
-//            updatedDiscipline.setParticipants(discipline.getParticipants());
             return disciplineRepository.save(updatedDiscipline);
         } else {
             return null;
@@ -42,9 +44,5 @@ public class DisciplineService {
 
     public void deleteDiscipline(int id) {
         disciplineRepository.deleteById(id);
-    }
-
-    public List<Discipline> getDisciplines() {
-        return disciplineRepository.findAll();
     }
 }

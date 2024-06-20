@@ -26,12 +26,12 @@ public class ParticipantService {
         return participantRepository.findAll();
     }
 
-    public Participant createParticipant(Participant participant) {
-        return participantRepository.save(participant);
-    }
-
     public Optional<Participant> getParticipantById(int id) {
         return participantRepository.findById(id);
+    }
+
+    public Participant createParticipant(Participant participant) {
+        return participantRepository.save(participant);
     }
 
     public Participant updateParticipant(int id, Participant participant) {

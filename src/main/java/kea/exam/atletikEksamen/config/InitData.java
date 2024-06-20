@@ -73,28 +73,28 @@ public class InitData implements CommandLineRunner {
         mathilde.getDisciplines().addAll(List.of(javelinThrow, poleVault));
 
         // Create results and associate with participants
-        results.add(new Result("Time", LocalDate.of(2023, 6, 10), sprint, mads));
-        results.add(new Result("Distance", LocalDate.of(2023, 6, 15), longJump, lise));
-        results.add(new Result("Distance", LocalDate.of(2023, 7, 5), javelinThrow, anders));
-        results.add(new Result("Height", LocalDate.of(2023, 7, 20), poleVault, frederik));
-        results.add(new Result("Time", LocalDate.of(2023, 8, 15), marathon, ida));
+        results.add(new Result("Time", LocalDate.of(2023, 6, 10), 10.75, sprint, mads));          // 100m Sprint time in seconds
+        results.add(new Result("Distance", LocalDate.of(2023, 6, 15), 6.50, longJump, lise));     // Long Jump distance in meters
+        results.add(new Result("Distance", LocalDate.of(2023, 7, 5), 70.20, javelinThrow, anders)); // Javelin Throw distance in meters
+        results.add(new Result("Height", LocalDate.of(2023, 7, 20), 4.80, poleVault, frederik));  // Pole Vault height in meters
+        results.add(new Result("Time", LocalDate.of(2023, 8, 15), 7596.0, marathon, ida));        // Marathon time in seconds (2 hours, 6 minutes, 36 seconds)
 
-        results.add(new Result("Time", LocalDate.of(2023, 6, 10), sprint, mads));
-        results.add(new Result("Height", LocalDate.of(2023, 7, 20), poleVault, frederik));
-        results.add(new Result("Time", LocalDate.of(2023, 8, 15), marathon, ida));
+        results.add(new Result("Time", LocalDate.of(2023, 6, 10), 11.23, sprint, mads));          // Another 100m Sprint time
+        results.add(new Result("Height", LocalDate.of(2023, 7, 20), 5.10, poleVault, frederik));  // Another Pole Vault height
+        results.add(new Result("Time", LocalDate.of(2023, 8, 15), 7654.0, marathon, ida));        // Another Marathon time
 
-        results.add(new Result("Distance", LocalDate.of(2023, 6, 15), longJump, lise));
-        results.add(new Result("Distance", LocalDate.of(2023, 7, 5), javelinThrow, anders));
-        results.add(new Result("Time", LocalDate.of(2023, 8, 15), marathon, ida));
+        results.add(new Result("Distance", LocalDate.of(2023, 6, 15), 6.75, longJump, lise));     // Another Long Jump distance
+        results.add(new Result("Distance", LocalDate.of(2023, 7, 5), 68.45, javelinThrow, anders)); // Another Javelin Throw distance
+        results.add(new Result("Time", LocalDate.of(2023, 8, 15), 8000.0, marathon, ida));        // Another Marathon time
 
-        results.add(new Result("Time", LocalDate.of(2023, 6, 10), sprint, mads));
-        results.add(new Result("Time", LocalDate.of(2023, 8, 15), marathon, ida));
+        results.add(new Result("Time", LocalDate.of(2023, 6, 10), 10.85, sprint, mads));          // Yet another 100m Sprint time
+        results.add(new Result("Time", LocalDate.of(2023, 8, 15), 7200.0, marathon, ida));        // Yet another Marathon time
 
-        results.add(new Result("Distance", LocalDate.of(2023, 6, 15), longJump, lise));
-        results.add(new Result("Height", LocalDate.of(2023, 7, 20), poleVault, frederik));
+        results.add(new Result("Distance", LocalDate.of(2023, 6, 15), 7.10, longJump, lise));     // Yet another Long Jump distance
+        results.add(new Result("Height", LocalDate.of(2023, 7, 20), 4.90, poleVault, frederik));  // Yet another Pole Vault height
 
-        results.add(new Result("Distance", LocalDate.of(2023, 7, 5), javelinThrow, anders));
-        results.add(new Result("Height", LocalDate.of(2023, 7, 20), poleVault, frederik));
+        results.add(new Result("Distance", LocalDate.of(2023, 7, 5), 72.15, javelinThrow, anders)); // Yet another Javelin Throw distance
+        results.add(new Result("Height", LocalDate.of(2023, 7, 20), 4.95, poleVault, frederik));  // Yet another Pole Vault height
 
         // Save data to repositories
         disciplineRepository.saveAll(disciplines);

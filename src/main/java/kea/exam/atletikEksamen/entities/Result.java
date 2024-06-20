@@ -20,7 +20,7 @@ public class Result {
 
     private String resultType;
     private java.time.LocalDate date;
-//    private String resultValue;
+    private double resultValue;
 
     @ManyToOne
     @JoinColumn(name = "discipline_id")
@@ -31,9 +31,11 @@ public class Result {
     @JsonIgnoreProperties("results")
     private Participant participant;
 
-    public Result(String resultType, LocalDate date, Discipline discipline, Participant participant) {
+    public Result(String resultType, LocalDate date, double resultValue, Discipline discipline, Participant participant) {
         this.resultType = resultType;
         this.date = date;
+        this.resultValue = resultValue;
+
         this.discipline = discipline;
         this.participant = participant;
     }
@@ -43,6 +45,7 @@ public class Result {
         return "Result{" +
                 "resultType=" + resultType +
                 ", date='" + date + '\'' +
+                ", resultValue='" + resultValue + '\'' +
                 ", participant='" + participant + '\'' +
                 ", discipline='" + discipline +
                 '}';

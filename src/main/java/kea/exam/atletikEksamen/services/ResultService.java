@@ -17,13 +17,17 @@ public class ResultService {
         this.resultRepository = resultRepository;
     }
 
-    public Result createResult(Result result) {
-        return resultRepository.save(result);
+    public List<Result> getResults() {
+        return resultRepository.findAll();
     }
 
     public Result getResult(int id) {
         Optional<Result> result = resultRepository.findById(id);
         return result.orElse(null);
+    }
+
+    public Result createResult(Result result) {
+        return resultRepository.save(result);
     }
 
     public Result updateResult(int id, Result result) {
@@ -42,9 +46,5 @@ public class ResultService {
 
     public void deleteResult(int id) {
         resultRepository.deleteById(id);
-    }
-
-    public List<Result> getResults() {
-        return resultRepository.findAll();
     }
 }
