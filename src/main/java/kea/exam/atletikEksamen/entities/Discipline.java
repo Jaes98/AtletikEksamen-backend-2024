@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,17 +21,26 @@ public class Discipline {
     private String name;
     private String resultType;
 
-    @OneToMany(mappedBy = "discipline", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
-    private Set<Result> results;
-
+    @OneToMany(mappedBy = "discipline")
+    private List<Result> results;
     @ManyToMany(mappedBy = "disciplines")
-    @ToString.Exclude
-    private Set<Participant> participants;
+    private List<Participant> participants;
 
-    public Discipline(String name, String resultType) {
+    public Discipline(String name, String resultType, List<Result> results, List<Participant> participants) {
         this.name = name;
         this.resultType = resultType;
+        this.results = results;
+        this.participants = participants;
+    }
+
+    @Override
+    public String toString() {
+        return "Discipline{" +
+                "name=" + name +
+                ", resultType='" + resultType + '\'' +
+                ", results='" + results + '\'' +
+                ", participants=" + participants +
+                '}';
     }
 
 }

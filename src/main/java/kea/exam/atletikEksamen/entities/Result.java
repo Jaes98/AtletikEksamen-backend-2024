@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
@@ -16,22 +18,32 @@ public class Result {
     private int id;
 
     private String resultType;
-    private String date;
+    private java.time.LocalDate date;
 //    private String resultValue;
 
     @ManyToOne
-    @JoinColumn(name = "participant_id", nullable = false)
-    @ToString.Exclude
+    @JoinColumn(name = "participant_id")
     private Participant participant;
 
     @ManyToOne
-    @JoinColumn(name = "discipline_id", nullable = false)
-    @ToString.Exclude
+    @JoinColumn(name = "discipline_id")
     private Discipline discipline;
 
-    public Result(String resultType, String date) {
+    public Result(String resultType, LocalDate date, Participant participant, Discipline discipline) {
         this.resultType = resultType;
         this.date = date;
+        this.participant = participant;
+        this.discipline = discipline;
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "resultType=" + resultType +
+                ", date='" + date + '\'' +
+                ", participant='" + participant + '\'' +
+                ", discipline='" + discipline +
+                '}';
     }
 
 }

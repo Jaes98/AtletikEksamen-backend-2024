@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,9 +24,8 @@ public class Participant {
     private int age;
     private String club;
 
-    @OneToMany(mappedBy = "participant", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
-    private Set<Result> results;
+    @OneToMany(mappedBy = "participant")
+    private List<Result> results;
 
     @ManyToMany
     @JoinTable(
@@ -33,13 +33,26 @@ public class Participant {
             joinColumns = @JoinColumn(name = "participant_id"),
             inverseJoinColumns = @JoinColumn(name = "discipline_id")
     )
-    @ToString.Exclude
-    private Set<Discipline> disciplines;
+    private List<Discipline> disciplines;
 
-    public Participant(String name, String gender, int age, String club, Set<Result> results, Set<Discipline> disciplines) {
+    public Participant(String name, String gender, int age, String club, List<Result> results, List<Discipline> disciplines) {
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.club = club;
+        this.results = results;
+        this.disciplines = disciplines;
+    }
+
+    @Override
+    public String toString() {
+        return "Participant{" +
+                "name=" + name +
+                ", gender='" + gender + '\'' +
+                ", age='" + age + '\'' +
+                ", club='" + club + '\'' +
+                ", results='" + results + '\'' +
+                ", disciplines=" + disciplines +
+                '}';
     }
 }
