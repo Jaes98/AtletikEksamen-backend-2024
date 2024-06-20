@@ -1,4 +1,4 @@
-package kea.exam.kaeledyr.config;
+package kea.exam.atletikEksamen.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

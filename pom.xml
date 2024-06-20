@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>kea.exam</groupId>
-    <artifactId>kaeledyr</artifactId>
+    <artifactId>atletikEksamen</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>kaeledyr</name>
     <description>kaeledyr</description>

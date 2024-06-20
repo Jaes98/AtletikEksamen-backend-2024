@@ -1,4 +1,4 @@
-package kea.exam.kaeledyr;
+package kea.exam.atletikEksamen;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
