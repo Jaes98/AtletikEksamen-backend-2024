@@ -1,1 +1,4 @@
-Link til Frontend repo: github/blabla.com
+24-timers atletikstævne eksamen
+
+Link til Frontend repo: https://github.com/Jaes98/AtletikEksamen-Frontend-2024
+
