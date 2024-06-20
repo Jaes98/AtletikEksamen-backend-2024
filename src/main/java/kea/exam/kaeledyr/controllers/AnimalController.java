@@ -22,16 +22,16 @@ public class AnimalController {
         return ResponseEntity.ok(animals);
     }
 
-    @PostMapping
-    public ResponseEntity<Animal> createAnimal(@RequestBody Animal animal) {
-        Animal createdAnimal = animalService.createAnimal(animal);
-        return ResponseEntity.ok(createdAnimal);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Animal> getAnimal(@PathVariable int id) {
         Animal animal = animalService.getAnimal(id);
         return ResponseEntity.ok(animal);
+    }
+
+    @PostMapping
+    public ResponseEntity<Animal> createAnimal(@RequestBody Animal animal) {
+        Animal createdAnimal = animalService.createAnimal(animal);
+        return ResponseEntity.ok(createdAnimal);
     }
 
     @PutMapping("/{id}")
