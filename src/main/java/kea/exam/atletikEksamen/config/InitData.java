@@ -37,11 +37,11 @@ public class InitData implements CommandLineRunner {
         List<Result> results = new ArrayList<>();
 
         // Create disciplines
-        Discipline sprint = new Discipline("100m Sprint", "Track", new ArrayList<>(), new ArrayList<>());
-        Discipline longJump = new Discipline("Long Jump", "Field", new ArrayList<>(), new ArrayList<>());
-        Discipline javelinThrow = new Discipline("Javelin Throw", "Field", new ArrayList<>(), new ArrayList<>());
-        Discipline poleVault = new Discipline("Pole Vault", "Field", new ArrayList<>(), new ArrayList<>());
-        Discipline marathon = new Discipline("Marathon", "Track", new ArrayList<>(), new ArrayList<>());
+        Discipline sprint = new Discipline("100m Sprint", "Time", new ArrayList<>(), new ArrayList<>());
+        Discipline longJump = new Discipline("Long Jump", "Height", new ArrayList<>(), new ArrayList<>());
+        Discipline javelinThrow = new Discipline("Javelin Throw", "Distance", new ArrayList<>(), new ArrayList<>());
+        Discipline poleVault = new Discipline("Pole Vault", "Distance", new ArrayList<>(), new ArrayList<>());
+        Discipline marathon = new Discipline("Marathon", "Time", new ArrayList<>(), new ArrayList<>());
 
         disciplines.add(sprint);
         disciplines.add(longJump);
